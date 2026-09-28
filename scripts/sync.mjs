@@ -102,6 +102,7 @@ async function main() {
   const items = [...fresh];
   for (const old of prev.items) {
     if (freshBySku.has(old.sku)) continue;
+    if (HIDDEN_SKUS.has(old.sku)) { changes.push(`− ausgeblendet: ${old.name}`); continue; }
     const since = prev.missingSince?.[old.sku];
     if (since && since !== now.date) {
       changes.push(`− gestrichen: ${old.name}`);

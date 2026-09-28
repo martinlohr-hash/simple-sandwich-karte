@@ -17,3 +17,11 @@ Wird täglich um 12 Uhr automatisch ergänzt.
 - + neu: Pepperoni Crust (1,50 €)
 - + neu: Caprese Sandwich (5,00 €)
 - + neu: Spianata Sandwich (5,00 €)
+
+## 2026-09-28
+- − ausgeblendet: BYO
+- − ausgeblendet: LUNCHSANDWICH
+- − ausgeblendet: KimChi Crust
+- − ausgeblendet: Pepperoni Crust
+- − ausgeblendet: Caprese Sandwich
+- − ausgeblendet: Spianata Sandwich

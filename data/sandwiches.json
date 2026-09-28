@@ -1,6 +1,6 @@
 {
   "checkedOn": "2026-09-28",
-  "checkedAt": "2026-09-28T17:59:58.407Z",
+  "checkedAt": "2026-09-28T18:04:41.162Z",
   "updatedOn": "2026-09-28",
   "items": [
     {
@@ -65,48 +65,6 @@
       "name": "Kim-Cheese Sandwich",
       "description": "",
       "priceCents": 1050,
-      "allergens": []
-    },
-    {
-      "sku": "106",
-      "name": "BYO",
-      "description": "",
-      "priceCents": 1090,
-      "allergens": []
-    },
-    {
-      "sku": "78",
-      "name": "LUNCHSANDWICH",
-      "description": "",
-      "priceCents": 850,
-      "allergens": []
-    },
-    {
-      "sku": "77",
-      "name": "KimChi Crust",
-      "description": "",
-      "priceCents": 150,
-      "allergens": []
-    },
-    {
-      "sku": "72",
-      "name": "Pepperoni Crust",
-      "description": "",
-      "priceCents": 150,
-      "allergens": []
-    },
-    {
-      "sku": "102",
-      "name": "Caprese Sandwich",
-      "description": "",
-      "priceCents": 500,
-      "allergens": []
-    },
-    {
-      "sku": "108",
-      "name": "Spianata Sandwich",
-      "description": "",
-      "priceCents": 500,
       "allergens": []
     }
   ],
