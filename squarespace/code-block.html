@@ -1,0 +1,51 @@
+<!-- Simple Sandwich-Karte · in einen Squarespace-Code-Block einfügen (HTML, "Display Source" aus) -->
+<div id="ssk" class="ssk" aria-live="polite">
+  <p class="ssk-note">Karte wird geladen …</p>
+</div>
+
+<style>
+  .ssk { --ssk-green: #20442E; --ssk-ink: #000; --ssk-muted: rgba(0,0,0,.55); --ssk-line: rgba(32,68,46,.25);
+         max-width: 760px; margin: 0 auto; color: var(--ssk-ink); }
+  .ssk-list { list-style: none; margin: 0; padding: 0; }
+  .ssk-item { padding: 22px 0; border-bottom: 1px solid var(--ssk-line); }
+  .ssk-item:first-child { border-top: 1px solid var(--ssk-line); }
+  .ssk-head { display: flex; align-items: baseline; gap: 12px; }
+  .ssk-name { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: clamp(24px, 3.2vw, 31px);
+              line-height: 1.1; letter-spacing: -0.02em; color: var(--ssk-green); margin: 0; }
+  .ssk-dots { flex: 1; border-bottom: 1px dotted var(--ssk-line); transform: translateY(-6px); min-width: 16px; }
+  .ssk-price { font-family: "Instrument Serif", Georgia, serif; font-size: clamp(22px, 3vw, 28px);
+               font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ssk-green); }
+  .ssk-desc { margin: 8px 0 0; font-size: 16px; line-height: 1.5; max-width: 60ch; }
+  .ssk-allergens { margin: 6px 0 0; font-size: 13px; color: var(--ssk-muted); }
+  .ssk-note { margin: 18px 0 0; font-size: 13px; color: var(--ssk-muted); }
+</style>
+
+<script>
+(function () {
+  var SRC = 'https://raw.githubusercontent.com/martinlohr-hash/simple-sandwich-karte/main/data/sandwiches.json';
+  var root = document.getElementById('ssk');
+  if (!root) return;
+
+  function esc(s) { var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+  function euro(c) { return (c / 100).toFixed(2).replace('.', ',') + ' €'; }
+  function datum(iso) { var p = iso.split('-'); return p[2] + '.' + p[1] + '.' + p[0]; }
+
+  fetch(SRC + '?d=' + new Date().toISOString().slice(0, 10), { cache: 'no-cache' })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (data) {
+      var html = '<ul class="ssk-list">' + data.items.map(function (i) {
+        return '<li class="ssk-item"><div class="ssk-head">' +
+          '<h3 class="ssk-name">' + esc(i.name) + '</h3><span class="ssk-dots" aria-hidden="true"></span>' +
+          '<span class="ssk-price">' + euro(i.priceCents) + '</span></div>' +
+          (i.description ? '<p class="ssk-desc">' + esc(i.description) + '</p>' : '') +
+          (i.allergens && i.allergens.length ? '<p class="ssk-allergens">Allergene: ' + esc(i.allergens.join(', ')) + '</p>' : '') +
+          '</li>';
+      }).join('') + '</ul>' +
+      '<p class="ssk-note">Stand: ' + datum(data.checkedOn) + ' · Preise inkl. MwSt. · Was aus ist, ist aus.</p>';
+      root.innerHTML = html;
+    })
+    .catch(function () {
+      root.innerHTML = '<p class="ssk-note">Die Karte kann gerade nicht geladen werden. Komm einfach vorbei – täglich ab 12, Weidenallee 24a.</p>';
+    });
+})();
+</script>

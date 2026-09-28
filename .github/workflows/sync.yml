@@ -1,0 +1,32 @@
+name: Sandwich-Karte abgleichen
+
+on:
+  # GitHub plant in UTC: 10:00 UTC = 12:00 Sommerzeit, 11:00 UTC = 12:00 Winterzeit.
+  # Das Skript läuft nur, wenn es in Berlin 12 Uhr ist, und höchstens einmal pro Tag.
+  schedule:
+    - cron: '0 10,11 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Sofort abgleichen (12-Uhr-Prüfung ignorieren)'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: node scripts/sync.mjs ${{ inputs.force && '--force' || '' }}
+      - name: Änderungen speichern
+        run: |
+          git config user.name "sandwich-karte-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data CHANGELOG.md
+          git diff --cached --quiet || { git commit -m "Karte abgeglichen $(TZ=Europe/Berlin date +%F)" && git push; }

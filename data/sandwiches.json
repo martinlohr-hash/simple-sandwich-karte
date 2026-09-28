@@ -1,0 +1,114 @@
+{
+  "checkedOn": "2026-09-28",
+  "checkedAt": "2026-09-28T17:59:58.407Z",
+  "updatedOn": "2026-09-28",
+  "items": [
+    {
+      "sku": "59",
+      "name": "Big J Pastrami",
+      "description": "Extraportion: 250+ g Pastrami vom Degenhof in der Nordheide, serviert mit Meerrettichcrème, Coleslaw, Pickles und Schnittlauch, auf Sauerteigweißbrot von Jochen Gaues.",
+      "priceCents": 2190,
+      "allergens": []
+    },
+    {
+      "sku": "21",
+      "name": "Pastrami Sandwich",
+      "description": "Pastrami vom Degenhof in der Nordheide, Meerrettichcrème, Coleslaw, Pickles, Schnittlauch",
+      "priceCents": 1350,
+      "allergens": [
+        "Milch",
+        "Gluten"
+      ]
+    },
+    {
+      "sku": "22",
+      "name": "Korean Porkbelly Sandwich",
+      "description": "Porkbelly, Kim-Chi, Gochujangcrème, Pickles, frischer Koriander",
+      "priceCents": 990,
+      "allergens": [
+        "Milch",
+        "Weizen",
+        "Gluten",
+        "Soja"
+      ]
+    },
+    {
+      "sku": "64",
+      "name": "Mortadella Sandwich",
+      "description": "",
+      "priceCents": 950,
+      "allergens": []
+    },
+    {
+      "sku": "71",
+      "name": "Pulled Beef Sandwich",
+      "description": "",
+      "priceCents": 1050,
+      "allergens": []
+    },
+    {
+      "sku": "54",
+      "name": "Grilled Cheese Sandwich",
+      "description": "",
+      "priceCents": 950,
+      "allergens": []
+    },
+    {
+      "sku": "74",
+      "name": "Cannellini Focaccia",
+      "description": "",
+      "priceCents": 990,
+      "allergens": []
+    },
+    {
+      "sku": "100",
+      "name": "Kim-Cheese Sandwich",
+      "description": "",
+      "priceCents": 1050,
+      "allergens": []
+    },
+    {
+      "sku": "106",
+      "name": "BYO",
+      "description": "",
+      "priceCents": 1090,
+      "allergens": []
+    },
+    {
+      "sku": "78",
+      "name": "LUNCHSANDWICH",
+      "description": "",
+      "priceCents": 850,
+      "allergens": []
+    },
+    {
+      "sku": "77",
+      "name": "KimChi Crust",
+      "description": "",
+      "priceCents": 150,
+      "allergens": []
+    },
+    {
+      "sku": "72",
+      "name": "Pepperoni Crust",
+      "description": "",
+      "priceCents": 150,
+      "allergens": []
+    },
+    {
+      "sku": "102",
+      "name": "Caprese Sandwich",
+      "description": "",
+      "priceCents": 500,
+      "allergens": []
+    },
+    {
+      "sku": "108",
+      "name": "Spianata Sandwich",
+      "description": "",
+      "priceCents": 500,
+      "allergens": []
+    }
+  ],
+  "missingSince": {}
+}
