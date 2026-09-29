@@ -1,48 +1,121 @@
-<!-- Simple Sandwich-Karte · in einen Squarespace-Code-Block einfügen (HTML, "Display Source" aus) -->
+<!-- Simple Sandwich-Karte (Galerie) · in einen Squarespace-Code-Block einfügen (HTML, "Display Source" aus) -->
 <div id="ssk" class="ssk" aria-live="polite">
   <p class="ssk-note">Karte wird geladen …</p>
 </div>
 
 <style>
-  .ssk { --ssk-green: #20442E; --ssk-ink: #000; --ssk-muted: rgba(0,0,0,.55); --ssk-line: rgba(32,68,46,.25);
-         max-width: 760px; margin: 0 auto; color: var(--ssk-ink); }
-  .ssk-list { list-style: none; margin: 0; padding: 0; }
-  .ssk-item { padding: 22px 0; border-bottom: 1px solid var(--ssk-line); }
-  .ssk-item:first-child { border-top: 1px solid var(--ssk-line); }
-  .ssk-head { display: flex; align-items: baseline; gap: 12px; }
-  .ssk-name { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: clamp(24px, 3.2vw, 31px);
-              line-height: 1.1; letter-spacing: -0.02em; color: var(--ssk-green); margin: 0; }
-  .ssk-dots { flex: 1; border-bottom: 1px dotted var(--ssk-line); transform: translateY(-6px); min-width: 16px; }
-  .ssk-price { font-family: "Instrument Serif", Georgia, serif; font-size: clamp(22px, 3vw, 28px);
-               font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ssk-green); }
-  .ssk-desc { margin: 8px 0 0; font-size: 16px; line-height: 1.5; max-width: 60ch; }
+  .ssk { --ssk-green: #20442E; --ssk-cream: #F3F1E4; --ssk-ink: #000; --ssk-muted: rgba(0,0,0,.55);
+         --ssk-line: rgba(32,68,46,.25); color: var(--ssk-ink); position: relative; }
+  .ssk-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 0 0 18px; }
+  .ssk-count { font-family: "Instrument Serif", Georgia, serif; font-size: 22px; color: var(--ssk-green);
+               font-variant-numeric: tabular-nums; }
+  .ssk-arrows { display: flex; gap: 10px; }
+  .ssk-arrow { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--ssk-green); background: transparent;
+               color: var(--ssk-green); cursor: pointer; display: grid; place-items: center; padding: 0;
+               transition: background .2s, color .2s, opacity .2s; }
+  .ssk-arrow:hover:not(:disabled) { background: var(--ssk-green); color: var(--ssk-cream); }
+  .ssk-arrow:disabled { opacity: .3; cursor: default; }
+  .ssk-arrow svg { width: 18px; height: 18px; }
+
+  .ssk-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+               -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px; list-style: none; margin: 0; padding-left: 0; }
+  .ssk-track::-webkit-scrollbar { display: none; }
+  .ssk-card { flex: 0 0 min(82%, 360px); scroll-snap-align: start; margin: 0; }
+  .ssk-img { aspect-ratio: 1 / 1; width: 100%; overflow: hidden; background: var(--ssk-green); position: relative; }
+  .ssk-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
+  .ssk-card:hover .ssk-img img { transform: scale(1.03); }
+  .ssk-ph { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center;
+            font-family: "Instrument Serif", Georgia, serif; font-size: 34px; line-height: 1.05; color: var(--ssk-cream); }
+  .ssk-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 16px 0 0; }
+  .ssk-name { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.1;
+              letter-spacing: -0.02em; color: var(--ssk-green); margin: 0; }
+  .ssk-price { font-family: "Instrument Serif", Georgia, serif; font-size: 26px; white-space: nowrap;
+               color: var(--ssk-green); font-variant-numeric: tabular-nums; }
+  .ssk-desc { margin: 8px 0 0; font-size: 15px; line-height: 1.5; }
   .ssk-allergens { margin: 6px 0 0; font-size: 13px; color: var(--ssk-muted); }
-  .ssk-note { margin: 18px 0 0; font-size: 13px; color: var(--ssk-muted); }
+
+  .ssk-progress { height: 1px; background: var(--ssk-line); margin: 26px 0 0; position: relative; }
+  .ssk-progress span { position: absolute; left: 0; top: -1px; height: 3px; background: var(--ssk-green);
+                       transition: left .25s ease, width .25s ease; }
+  .ssk-note { margin: 16px 0 0; font-size: 13px; color: var(--ssk-muted); }
+  @media (max-width: 600px) { .ssk-arrows { display: none; } }
 </style>
 
 <script>
 (function () {
-  var SRC = 'https://raw.githubusercontent.com/martinlohr-hash/simple-sandwich-karte/main/data/sandwiches.json';
+  var BASE = 'https://raw.githubusercontent.com/martinlohr-hash/simple-sandwich-karte/main/';
   var root = document.getElementById('ssk');
   if (!root) return;
 
   function esc(s) { var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
   function euro(c) { return (c / 100).toFixed(2).replace('.', ',') + ' €'; }
   function datum(iso) { var p = iso.split('-'); return p[2] + '.' + p[1] + '.' + p[0]; }
+  var arrow = function (d) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="' +
+      (d < 0 ? 'M15 5l-7 7 7 7' : 'M9 5l7 7-7 7') + '"/></svg>';
+  };
 
-  fetch(SRC + '?d=' + new Date().toISOString().slice(0, 10), { cache: 'no-cache' })
+  fetch(BASE + 'data/sandwiches.json?d=' + new Date().toISOString().slice(0, 10), { cache: 'no-cache' })
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (data) {
-      var html = '<ul class="ssk-list">' + data.items.map(function (i) {
-        return '<li class="ssk-item"><div class="ssk-head">' +
-          '<h3 class="ssk-name">' + esc(i.name) + '</h3><span class="ssk-dots" aria-hidden="true"></span>' +
-          '<span class="ssk-price">' + euro(i.priceCents) + '</span></div>' +
-          (i.description ? '<p class="ssk-desc">' + esc(i.description) + '</p>' : '') +
-          (i.allergens && i.allergens.length ? '<p class="ssk-allergens">Allergene: ' + esc(i.allergens.join(', ')) + '</p>' : '') +
-          '</li>';
-      }).join('') + '</ul>' +
-      '<p class="ssk-note">Stand: ' + datum(data.checkedOn) + ' · Preise inkl. MwSt. · Was aus ist, ist aus.</p>';
-      root.innerHTML = html;
+      var items = data.items;
+      root.innerHTML =
+        '<div class="ssk-bar"><span class="ssk-count"></span><div class="ssk-arrows">' +
+          '<button class="ssk-arrow" data-dir="-1" aria-label="Vorheriges Sandwich">' + arrow(-1) + '</button>' +
+          '<button class="ssk-arrow" data-dir="1" aria-label="Nächstes Sandwich">' + arrow(1) + '</button>' +
+        '</div></div>' +
+        '<ul class="ssk-track" tabindex="0" aria-label="Sandwich-Karte">' + items.map(function (i) {
+          return '<li class="ssk-card"><div class="ssk-img">' +
+            (i.image ? '<img src="' + BASE + esc(i.image) + '" alt="' + esc(i.name) + '" loading="lazy" width="800" height="800">'
+                     : '<span class="ssk-ph">' + esc(i.name) + '</span>') +
+            '</div><div class="ssk-head"><h3 class="ssk-name">' + esc(i.name) + '</h3>' +
+            '<span class="ssk-price">' + euro(i.priceCents) + '</span></div>' +
+            (i.description ? '<p class="ssk-desc">' + esc(i.description) + '</p>' : '') +
+            (i.allergens && i.allergens.length ? '<p class="ssk-allergens">Allergene: ' + esc(i.allergens.join(', ')) + '</p>' : '') +
+            '</li>';
+        }).join('') + '</ul>' +
+        '<div class="ssk-progress"><span></span></div>' +
+        '<p class="ssk-note">Stand: ' + datum(data.checkedOn) + ' · Preise inkl. MwSt. · Was aus ist, ist aus.</p>';
+
+      var track = root.querySelector('.ssk-track');
+      var cards = track.children;
+      var count = root.querySelector('.ssk-count');
+      var bar = root.querySelector('.ssk-progress span');
+      var btns = root.querySelectorAll('.ssk-arrow');
+
+      function step() { return cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : track.clientWidth; }
+      function update() {
+        var max = track.scrollWidth - track.clientWidth;
+        var idx = Math.round(track.scrollLeft / step());
+        var visible = Math.max(1, Math.floor((track.clientWidth + 20) / step()));
+        var atEnd = track.scrollLeft >= max - 2;
+        var first = atEnd ? items.length - visible + 1 : idx + 1;
+        var last = Math.min(items.length, first + visible - 1);
+        count.textContent = (first === last ? first : first + '–' + last) + ' / ' + items.length;
+        bar.style.left = ((first - 1) / items.length * 100) + '%';
+        bar.style.width = ((last - first + 1) / items.length * 100) + '%';
+        btns[0].disabled = track.scrollLeft <= 2;
+        btns[1].disabled = atEnd;
+      }
+      // Feste Zielkarte statt relativem Scrollen, damit schnelles Klicken nicht zwischen zwei Karten landet.
+      var target = null, settle;
+      function go(dir) {
+        var max = track.scrollWidth - track.clientWidth;
+        var lastIdx = Math.ceil(max / step());
+        var base = target !== null ? target : Math.round(track.scrollLeft / step());
+        target = Math.max(0, Math.min(lastIdx, base + dir));
+        track.scrollTo({ left: Math.min(max, target * step()), behavior: 'smooth' });
+      }
+      btns.forEach(function (b) { b.addEventListener('click', function () { go(Number(b.dataset.dir)); }); });
+      track.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); go(e.key === 'ArrowRight' ? 1 : -1); }
+      });
+      track.addEventListener('scroll', function () {
+        window.requestAnimationFrame(update);
+        clearTimeout(settle); settle = setTimeout(function () { target = null; }, 150);
+      }, { passive: true });
+      window.addEventListener('resize', update);
+      update();
     })
     .catch(function () {
       root.innerHTML = '<p class="ssk-note">Die Karte kann gerade nicht geladen werden. Komm einfach vorbei – täglich ab 12, Weidenallee 24a.</p>';

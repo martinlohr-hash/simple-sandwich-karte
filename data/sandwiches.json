@@ -1,20 +1,22 @@
 {
-  "checkedOn": "2026-09-28",
-  "checkedAt": "2026-09-28T18:04:41.162Z",
-  "updatedOn": "2026-09-28",
+  "checkedOn": "2026-09-29",
+  "checkedAt": "2026-09-29T01:12:44.800Z",
+  "updatedOn": "2026-09-29",
   "items": [
     {
       "sku": "59",
       "name": "Big J Pastrami",
-      "description": "Extraportion: 250+ g Pastrami vom Degenhof in der Nordheide, serviert mit Meerrettichcrème, Coleslaw, Pickles und Schnittlauch, auf Sauerteigweißbrot von Jochen Gaues.",
+      "description": "Extraportion: 250+ g Pastrami vom Degenhof in der Nordheide, serviert mit Meerrettichcrème, Coleslaw, Pickles und Schnittlauch, auf Sauerteigweißbrot von FeuFou",
       "priceCents": 2190,
+      "image": "images/59-3f00ebd4.webp",
       "allergens": []
     },
     {
       "sku": "21",
       "name": "Pastrami Sandwich",
       "description": "Pastrami vom Degenhof in der Nordheide, Meerrettichcrème, Coleslaw, Pickles, Schnittlauch",
-      "priceCents": 1350,
+      "priceCents": 1390,
+      "image": "images/21-6a62f095.webp",
       "allergens": [
         "Milch",
         "Gluten"
@@ -25,6 +27,7 @@
       "name": "Korean Porkbelly Sandwich",
       "description": "Porkbelly, Kim-Chi, Gochujangcrème, Pickles, frischer Koriander",
       "priceCents": 990,
+      "image": "images/22-8b0eaa10.webp",
       "allergens": [
         "Milch",
         "Weizen",
@@ -35,29 +38,44 @@
     {
       "sku": "64",
       "name": "Mortadella Sandwich",
-      "description": "",
+      "description": "Italienische Mortadella, Stracciatella di Burrata, Pistazien-Parmesan-Öl, Sauerteigbrot von FeuFou",
       "priceCents": 950,
-      "allergens": []
+      "image": "images/64-445efd79.webp",
+      "allergens": [
+        "pistachios",
+        "Milch",
+        "Gluten"
+      ]
     },
     {
       "sku": "71",
       "name": "Pulled Beef Sandwich",
-      "description": "",
+      "description": "Langsam geschmorter Rindernacken Frischkäse | Tomaten | Simplesauce",
       "priceCents": 1050,
-      "allergens": []
+      "image": null,
+      "allergens": [
+        "Sellerie",
+        "Gluten",
+        "Soja"
+      ]
     },
     {
       "sku": "54",
       "name": "Grilled Cheese Sandwich",
-      "description": "",
+      "description": "Triple Cheese Mix | Thymian eingelegte Gurken | Chilihonig",
       "priceCents": 950,
-      "allergens": []
+      "image": "images/54-468cadf0.webp",
+      "allergens": [
+        "Milch",
+        "Gluten"
+      ]
     },
     {
       "sku": "74",
       "name": "Cannellini Focaccia",
-      "description": "",
+      "description": "Canellinibohnen | Zucchinistreifen | Gremolata 2.0",
       "priceCents": 990,
+      "image": "images/74-c3cb2c5b.webp",
       "allergens": []
     },
     {
@@ -65,6 +83,7 @@
       "name": "Kim-Cheese Sandwich",
       "description": "",
       "priceCents": 1050,
+      "image": null,
       "allergens": []
     }
   ],

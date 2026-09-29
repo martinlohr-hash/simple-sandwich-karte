@@ -8,7 +8,9 @@
 //
 // Aufruf: node scripts/sync.mjs [--force]   (--force ignoriert die 12-Uhr-Prüfung)
 
-import { readFile, writeFile, appendFile } from 'node:fs/promises';
+import { readFile, writeFile, appendFile, readdir, unlink, mkdir, access } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import sharp from 'sharp';
 
 const BASE = 'https://mylightspeed.app';
 const MERCHANT = 'YXRMQJBM';
@@ -16,6 +18,8 @@ const LOCATION = 'C-ordering';
 const CATEGORY = 'Sandwiches';
 const OUT = new URL('../data/sandwiches.json', import.meta.url);
 const LOG = new URL('../CHANGELOG.md', import.meta.url);
+const IMG_DIR = new URL('../images/', import.meta.url);
+const IMG_SIZE = 800;
 
 // Artikel, die nicht auf der Website erscheinen sollen (SKU aus Lightspeed).
 const HIDDEN_SKUS = new Set(JSON.parse(
@@ -72,9 +76,39 @@ async function fetchSandwiches() {
         name: i.name.trim(),
         description,
         priceCents: i.unitPriceCents,
+        image: i.squareImageUrl || i.rawImageUrl || null,
         allergens: (i.allergenCodes || []).map(a => ALLERGENS[a] ?? a),
       };
     });
+}
+
+// Lightspeed-Originale sind teils mehrere MB groß → quadratisch auf 800 px WebP verkleinern.
+// Der Dateiname enthält einen Hash der Quell-URL, damit ein neues Bild auch neu geladen wird.
+async function localizeImages(items) {
+  await mkdir(IMG_DIR, { recursive: true });
+  for (const item of items) {
+    if (!item.image) continue;
+    const file = `${item.sku}-${createHash('sha1').update(item.image).digest('hex').slice(0, 8)}.webp`;
+    const target = new URL(file, IMG_DIR);
+    try { await access(target); } catch {
+      try {
+        const res = await fetch(item.image);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        await sharp(Buffer.from(await res.arrayBuffer()))
+          .resize(IMG_SIZE, IMG_SIZE, { fit: 'cover' }).webp({ quality: 80 }).toFile(target.pathname);
+      } catch (err) {
+        console.warn(`Bild für ${item.name} nicht geladen: ${err.message}`);
+        item.image = null;
+        continue;
+      }
+    }
+    item.image = `images/${file}`;
+  }
+}
+
+async function pruneImages(items) {
+  const keep = new Set(items.map(i => i.image?.replace('images/', '')).filter(Boolean));
+  for (const f of await readdir(IMG_DIR)) if (!keep.has(f)) await unlink(new URL(f, IMG_DIR));
 }
 
 const euro = c => (c / 100).toFixed(2).replace('.', ',') + ' €';
@@ -92,6 +126,7 @@ async function main() {
 
   const fresh = await fetchSandwiches();
   if (!fresh.length) throw new Error('Lightspeed lieferte 0 Sandwiches – Karte bleibt unverändert.');
+  await localizeImages(fresh);
 
   const freshBySku = new Map(fresh.map(i => [i.sku, i]));
   const prevBySku = new Map(prev.items.map(i => [i.sku, i]));
@@ -120,8 +155,11 @@ async function main() {
       if (old.priceCents !== item.priceCents) changes.push(`€ ${item.name}: ${euro(old.priceCents)} → ${euro(item.priceCents)}`);
       if (old.name !== item.name) changes.push(`✎ umbenannt: ${old.name} → ${item.name}`);
       if (old.description !== item.description) changes.push(`✎ Beschreibung geändert: ${item.name}`);
+      if ((old.image ?? null) !== item.image) changes.push(`▣ Bild ${item.image ? 'neu/geändert' : 'entfernt'}: ${item.name}`);
     }
   }
+
+  await pruneImages(items);
 
   const out = {
     checkedOn: now.date,

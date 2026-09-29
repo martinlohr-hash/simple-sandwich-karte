@@ -25,3 +25,17 @@ Wird täglich um 12 Uhr automatisch ergänzt.
 - − ausgeblendet: Pepperoni Crust
 - − ausgeblendet: Caprese Sandwich
 - − ausgeblendet: Spianata Sandwich
+
+## 2026-09-29
+- ✎ Beschreibung geändert: Big J Pastrami
+- ▣ Bild neu/geändert: Big J Pastrami
+- € Pastrami Sandwich: 13,50 € → 13,90 €
+- ▣ Bild neu/geändert: Pastrami Sandwich
+- ▣ Bild neu/geändert: Korean Porkbelly Sandwich
+- ✎ Beschreibung geändert: Mortadella Sandwich
+- ▣ Bild neu/geändert: Mortadella Sandwich
+- ✎ Beschreibung geändert: Pulled Beef Sandwich
+- ✎ Beschreibung geändert: Grilled Cheese Sandwich
+- ▣ Bild neu/geändert: Grilled Cheese Sandwich
+- ✎ Beschreibung geändert: Cannellini Focaccia
+- ▣ Bild neu/geändert: Cannellini Focaccia
