@@ -121,7 +121,7 @@ async function main() {
 
   if (!force) {
     if (now.hour !== 12) return console.log(`Nicht 12 Uhr in Berlin (${now.hour} Uhr) – übersprungen.`);
-    if (prev.checkedOn === now.date) return console.log('Heute schon abgeglichen – übersprungen.');
+    if (prev.autoRunOn === now.date) return console.log('Heute schon abgeglichen – übersprungen.');
   }
 
   const fresh = await fetchSandwiches();
@@ -163,6 +163,8 @@ async function main() {
 
   const out = {
     checkedOn: now.date,
+    // Nur automatische Läufe zählen für "einmal pro Tag" – ein manueller Lauf blockiert den 12-Uhr-Lauf nicht.
+    autoRunOn: force ? prev.autoRunOn ?? null : now.date,
     checkedAt: new Date().toISOString(),
     updatedOn: changes.some(c => !c.startsWith('?')) || !prev.updatedOn ? now.date : prev.updatedOn,
     items,
