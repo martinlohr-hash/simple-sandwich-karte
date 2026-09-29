@@ -39,3 +39,10 @@ Wird täglich um 12 Uhr automatisch ergänzt.
 - ▣ Bild neu/geändert: Grilled Cheese Sandwich
 - ✎ Beschreibung geändert: Cannellini Focaccia
 - ▣ Bild neu/geändert: Cannellini Focaccia
+
+## 2026-09-29
+- ? fehlt heute (bleibt bis morgen stehen): Kim-Cheese Sandwich
+- ▣ Bild neu/geändert: Big J Pastrami
+- ▣ Bild neu/geändert: Pastrami Sandwich
+- ▣ Bild neu/geändert: Korean Porkbelly Sandwich
+- ▣ Bild neu/geändert: Pulled Beef Sandwich
