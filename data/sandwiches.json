@@ -1,15 +1,15 @@
 {
-  "checkedOn": "2026-09-29",
-  "autoRunOn": null,
-  "checkedAt": "2026-09-29T01:33:08.246Z",
-  "updatedOn": "2026-09-29",
+  "checkedOn": "2026-09-30",
+  "autoRunOn": "2026-09-30",
+  "checkedAt": "2026-09-30T11:21:41.026Z",
+  "updatedOn": "2026-09-30",
   "items": [
     {
       "sku": "59",
       "name": "Big J Pastrami",
       "description": "Extraportion: 250+ g Pastrami vom Degenhof in der Nordheide, serviert mit Meerrettichcrème, Coleslaw, Pickles und Schnittlauch, auf Sauerteigweißbrot von FeuFou",
       "priceCents": 2190,
-      "image": "images/59-d1a57ce0.webp",
+      "image": "images/59-855ab701.webp",
       "allergens": []
     },
     {
@@ -78,17 +78,7 @@
       "priceCents": 990,
       "image": "images/74-c3cb2c5b.webp",
       "allergens": []
-    },
-    {
-      "sku": "100",
-      "name": "Kim-Cheese Sandwich",
-      "description": "",
-      "priceCents": 1050,
-      "image": null,
-      "allergens": []
     }
   ],
-  "missingSince": {
-    "100": "2026-09-29"
-  }
+  "missingSince": {}
 }

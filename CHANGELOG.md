@@ -46,3 +46,7 @@ Wird täglich um 12 Uhr automatisch ergänzt.
 - ▣ Bild neu/geändert: Pastrami Sandwich
 - ▣ Bild neu/geändert: Korean Porkbelly Sandwich
 - ▣ Bild neu/geändert: Pulled Beef Sandwich
+
+## 2026-09-30
+- − gestrichen: Kim-Cheese Sandwich
+- ▣ Bild neu/geändert: Big J Pastrami
