@@ -1,10 +1,12 @@
 name: Sandwich-Karte abgleichen
 
 on:
-  # GitHub plant in UTC: 10:00 UTC = 12:00 Sommerzeit, 11:00 UTC = 12:00 Winterzeit.
-  # Das Skript läuft nur, wenn es in Berlin 12 Uhr ist, und höchstens einmal pro Tag.
+  # GitHub plant in UTC (10:00 UTC = 12:00 Sommerzeit, 11:00 UTC = 12:00 Winterzeit) und startet
+  # geplante Läufe oft verspätet oder lässt sie aus. Deshalb mehrere Versuche ab 12 Uhr:
+  # das Skript gleicht beim ersten Lauf ab 12 Uhr Berliner Zeit ab und danach an dem Tag nicht mehr.
   schedule:
-    - cron: '0 10,11 * * *'
+    - cron: '3,18,33,48 10-12 * * *'
+    - cron: '3 13-20 * * *'
   workflow_dispatch:
     inputs:
       force:

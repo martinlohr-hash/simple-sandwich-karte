@@ -120,7 +120,8 @@ async function main() {
   try { prev = JSON.parse(await readFile(OUT, 'utf8')); } catch {}
 
   if (!force) {
-    if (now.hour !== 12) return console.log(`Nicht 12 Uhr in Berlin (${now.hour} Uhr) – übersprungen.`);
+    // GitHub startet geplante Läufe oft verspätet (teils Stunden) → der erste Lauf ab 12 Uhr zählt.
+    if (now.hour < 12) return console.log(`Noch vor 12 Uhr in Berlin (${now.hour} Uhr) – übersprungen.`);
     if (prev.autoRunOn === now.date) return console.log('Heute schon abgeglichen – übersprungen.');
   }
 
