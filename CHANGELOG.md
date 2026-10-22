@@ -50,3 +50,6 @@ Wird täglich um 12 Uhr automatisch ergänzt.
 ## 2026-09-30
 - − gestrichen: Kim-Cheese Sandwich
 - ▣ Bild neu/geändert: Big J Pastrami
+
+## 2026-10-22
+- + neu: Kürbis-Tahini Sandwich (9,90 €)

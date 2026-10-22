@@ -1,8 +1,8 @@
 {
-  "checkedOn": "2026-10-21",
-  "autoRunOn": "2026-10-21",
-  "checkedAt": "2026-10-21T14:52:00.282Z",
-  "updatedOn": "2026-09-30",
+  "checkedOn": "2026-10-22",
+  "autoRunOn": "2026-10-22",
+  "checkedAt": "2026-10-22T14:52:31.226Z",
+  "updatedOn": "2026-10-22",
   "items": [
     {
       "sku": "59",
@@ -78,6 +78,17 @@
       "priceCents": 990,
       "image": "images/74-c3cb2c5b.webp",
       "allergens": []
+    },
+    {
+      "sku": "110",
+      "name": "Kürbis-Tahini Sandwich",
+      "description": "Miso-gerösteter Kürbis, Tahini-Mayo (vegan), Kürbiskerne, Kürbiskernöl, Salbei",
+      "priceCents": 990,
+      "image": "images/110-08c4489b.webp",
+      "allergens": [
+        "Sesam",
+        "Soja"
+      ]
     }
   ],
   "missingSince": {}
