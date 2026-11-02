@@ -1,8 +1,8 @@
 {
-  "checkedOn": "2026-11-01",
-  "autoRunOn": "2026-11-01",
-  "checkedAt": "2026-11-01T16:35:22.233Z",
-  "updatedOn": "2026-10-22",
+  "checkedOn": "2026-11-02",
+  "autoRunOn": "2026-11-02",
+  "checkedAt": "2026-11-02T19:58:40.320Z",
+  "updatedOn": "2026-11-02",
   "items": [
     {
       "sku": "59",
@@ -21,19 +21,6 @@
       "allergens": [
         "Milch",
         "Gluten"
-      ]
-    },
-    {
-      "sku": "22",
-      "name": "Korean Porkbelly Sandwich",
-      "description": "Porkbelly, Kim-Chi, Gochujangcrème, Pickles, frischer Koriander",
-      "priceCents": 990,
-      "image": "images/22-4ca21ec7.webp",
-      "allergens": [
-        "Milch",
-        "Weizen",
-        "Gluten",
-        "Soja"
       ]
     },
     {
@@ -61,6 +48,18 @@
       ]
     },
     {
+      "sku": "112",
+      "name": "Salsiccia Kürbis SW",
+      "description": "",
+      "priceCents": 1050,
+      "image": "images/112-7b82d155.webp",
+      "allergens": [
+        "Milch",
+        "Weizen",
+        "Gluten"
+      ]
+    },
+    {
       "sku": "54",
       "name": "Grilled Cheese Sandwich",
       "description": "Triple Cheese Mix | Thymian eingelegte Gurken | Chilihonig",
@@ -72,14 +71,6 @@
       ]
     },
     {
-      "sku": "74",
-      "name": "Cannellini Focaccia",
-      "description": "Canellinibohnen | Zucchinistreifen | Gremolata 2.0",
-      "priceCents": 990,
-      "image": "images/74-c3cb2c5b.webp",
-      "allergens": []
-    },
-    {
       "sku": "110",
       "name": "Kürbis-Tahini Sandwich",
       "description": "Miso-gerösteter Kürbis, Tahini-Mayo (vegan), Kürbiskerne, Kürbiskernöl, Salbei",
@@ -89,7 +80,31 @@
         "Sesam",
         "Soja"
       ]
+    },
+    {
+      "sku": "22",
+      "name": "Korean Porkbelly Sandwich",
+      "description": "Porkbelly, Kim-Chi, Gochujangcrème, Pickles, frischer Koriander",
+      "priceCents": 990,
+      "image": "images/22-4ca21ec7.webp",
+      "allergens": [
+        "Milch",
+        "Weizen",
+        "Gluten",
+        "Soja"
+      ]
+    },
+    {
+      "sku": "74",
+      "name": "Cannellini Focaccia",
+      "description": "Canellinibohnen | Zucchinistreifen | Gremolata 2.0",
+      "priceCents": 990,
+      "image": "images/74-c3cb2c5b.webp",
+      "allergens": []
     }
   ],
-  "missingSince": {}
+  "missingSince": {
+    "22": "2026-11-02",
+    "74": "2026-11-02"
+  }
 }

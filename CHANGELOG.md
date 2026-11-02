@@ -53,3 +53,8 @@ Wird täglich um 12 Uhr automatisch ergänzt.
 
 ## 2026-10-22
 - + neu: Kürbis-Tahini Sandwich (9,90 €)
+
+## 2026-11-02
+- ? fehlt heute (bleibt bis morgen stehen): Korean Porkbelly Sandwich
+- ? fehlt heute (bleibt bis morgen stehen): Cannellini Focaccia
+- + neu: Salsiccia Kürbis SW (10,50 €)
