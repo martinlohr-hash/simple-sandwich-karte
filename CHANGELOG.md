@@ -58,3 +58,7 @@ Wird täglich um 12 Uhr automatisch ergänzt.
 - ? fehlt heute (bleibt bis morgen stehen): Korean Porkbelly Sandwich
 - ? fehlt heute (bleibt bis morgen stehen): Cannellini Focaccia
 - + neu: Salsiccia Kürbis SW (10,50 €)
+
+## 2026-11-03
+- − gestrichen: Korean Porkbelly Sandwich
+- − gestrichen: Cannellini Focaccia
