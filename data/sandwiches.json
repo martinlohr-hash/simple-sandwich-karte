@@ -1,8 +1,8 @@
 {
-  "checkedOn": "2026-11-03",
-  "autoRunOn": "2026-11-03",
-  "checkedAt": "2026-11-03T17:33:26.099Z",
-  "updatedOn": "2026-11-03",
+  "checkedOn": "2026-11-04",
+  "autoRunOn": "2026-11-04",
+  "checkedAt": "2026-11-04T17:45:53.727Z",
+  "updatedOn": "2026-11-04",
   "items": [
     {
       "sku": "59",
@@ -49,7 +49,7 @@
     },
     {
       "sku": "112",
-      "name": "Salsiccia Kürbis SW",
+      "name": "Salsiccia Kürbis Sandwich",
       "description": "",
       "priceCents": 1050,
       "image": "images/112-7b82d155.webp",
@@ -72,7 +72,7 @@
     },
     {
       "sku": "110",
-      "name": "Kürbis-Tahini Sandwich",
+      "name": "Miso Pumpkin Sandwich",
       "description": "Miso-gerösteter Kürbis, Tahini-Mayo (vegan), Kürbiskerne, Kürbiskernöl, Salbei",
       "priceCents": 990,
       "image": "images/110-08c4489b.webp",

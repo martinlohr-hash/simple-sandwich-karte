@@ -62,3 +62,7 @@ Wird täglich um 12 Uhr automatisch ergänzt.
 ## 2026-11-03
 - − gestrichen: Korean Porkbelly Sandwich
 - − gestrichen: Cannellini Focaccia
+
+## 2026-11-04
+- ✎ umbenannt: Salsiccia Kürbis SW → Salsiccia Kürbis Sandwich
+- ✎ umbenannt: Kürbis-Tahini Sandwich → Miso Pumpkin Sandwich
