@@ -66,3 +66,10 @@ Wird täglich um 12 Uhr automatisch ergänzt.
 ## 2026-11-04
 - ✎ umbenannt: Salsiccia Kürbis SW → Salsiccia Kürbis Sandwich
 - ✎ umbenannt: Kürbis-Tahini Sandwich → Miso Pumpkin Sandwich
+
+## 2026-11-25
+- ? fehlt heute (bleibt bis morgen stehen): Salsiccia Kürbis Sandwich
+- ✎ Beschreibung geändert: Mortadella Sandwich
+- ✎ Beschreibung geändert: Pulled Beef Sandwich
+- ✎ Beschreibung geändert: Grilled Cheese Sandwich
+- + neu: Meatball Sandwich (9,90 €)

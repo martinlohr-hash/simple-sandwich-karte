@@ -1,8 +1,8 @@
 {
-  "checkedOn": "2026-11-24",
-  "autoRunOn": "2026-11-24",
-  "checkedAt": "2026-11-24T20:29:30.969Z",
-  "updatedOn": "2026-11-04",
+  "checkedOn": "2026-11-25",
+  "autoRunOn": "2026-11-25",
+  "checkedAt": "2026-11-25T19:46:28.199Z",
+  "updatedOn": "2026-11-25",
   "items": [
     {
       "sku": "59",
@@ -26,7 +26,7 @@
     {
       "sku": "64",
       "name": "Mortadella Sandwich",
-      "description": "Italienische Mortadella, Stracciatella di Burrata, Pistazien-Parmesan-Öl, Sauerteigbrot von FeuFou",
+      "description": "Italienische Mortadella, Stracciatella di Burrata, Pistazien-Olivenöl, Sauerteigbrot von FeuFou",
       "priceCents": 950,
       "image": "images/64-445efd79.webp",
       "allergens": [
@@ -38,7 +38,7 @@
     {
       "sku": "71",
       "name": "Pulled Beef Sandwich",
-      "description": "Langsam geschmorter Rindernacken Frischkäse | Tomaten | Simplesauce",
+      "description": "Langsam geschmorter Rindernacken, Creamcheese, Tomatenmix, Simplesauce",
       "priceCents": 1050,
       "image": "images/71-3a5c75cb.webp",
       "allergens": [
@@ -48,21 +48,9 @@
       ]
     },
     {
-      "sku": "112",
-      "name": "Salsiccia Kürbis Sandwich",
-      "description": "",
-      "priceCents": 1050,
-      "image": "images/112-7b82d155.webp",
-      "allergens": [
-        "Milch",
-        "Weizen",
-        "Gluten"
-      ]
-    },
-    {
       "sku": "54",
       "name": "Grilled Cheese Sandwich",
-      "description": "Triple Cheese Mix | Thymian eingelegte Gurken | Chilihonig",
+      "description": "Triple Cheese Mix, Thymian, eingelegte Gurken, Chilihonig",
       "priceCents": 950,
       "image": "images/54-468cadf0.webp",
       "allergens": [
@@ -80,7 +68,32 @@
         "Sesam",
         "Soja"
       ]
+    },
+    {
+      "sku": "23",
+      "name": "Meatball Sandwich",
+      "description": "Meatballs (Rind), Tomatensauce, Basilikumöl, Simple Sauce auf Bauernbaguette",
+      "priceCents": 990,
+      "image": "images/23-fe5fe38b.webp",
+      "allergens": [
+        "Milch",
+        "Gluten"
+      ]
+    },
+    {
+      "sku": "112",
+      "name": "Salsiccia Kürbis Sandwich",
+      "description": "",
+      "priceCents": 1050,
+      "image": "images/112-7b82d155.webp",
+      "allergens": [
+        "Milch",
+        "Weizen",
+        "Gluten"
+      ]
     }
   ],
-  "missingSince": {}
+  "missingSince": {
+    "112": "2026-11-25"
+  }
 }
