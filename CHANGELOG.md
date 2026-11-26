@@ -73,3 +73,6 @@ Wird täglich um 12 Uhr automatisch ergänzt.
 - ✎ Beschreibung geändert: Pulled Beef Sandwich
 - ✎ Beschreibung geändert: Grilled Cheese Sandwich
 - + neu: Meatball Sandwich (9,90 €)
+
+## 2026-11-26
+- − gestrichen: Salsiccia Kürbis Sandwich

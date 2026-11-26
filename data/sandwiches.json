@@ -1,8 +1,8 @@
 {
-  "checkedOn": "2026-11-25",
-  "autoRunOn": "2026-11-25",
-  "checkedAt": "2026-11-25T19:46:28.199Z",
-  "updatedOn": "2026-11-25",
+  "checkedOn": "2026-11-26",
+  "autoRunOn": "2026-11-26",
+  "checkedAt": "2026-11-26T19:25:05.431Z",
+  "updatedOn": "2026-11-26",
   "items": [
     {
       "sku": "59",
@@ -10,7 +10,14 @@
       "description": "Extraportion: 250+ g Pastrami vom Degenhof in der Nordheide, serviert mit Meerrettichcrème, Coleslaw, Pickles und Schnittlauch, auf Sauerteigweißbrot von FeuFou",
       "priceCents": 2190,
       "image": "images/59-855ab701.webp",
-      "allergens": []
+      "allergens": [
+        "Ei",
+        "Senf",
+        "sulphur",
+        "Milch",
+        "Weizen",
+        "Gluten"
+      ]
     },
     {
       "sku": "21",
@@ -19,7 +26,11 @@
       "priceCents": 1390,
       "image": "images/21-ec6a179e.webp",
       "allergens": [
+        "Ei",
+        "Senf",
+        "sulphur",
         "Milch",
+        "Weizen",
         "Gluten"
       ]
     },
@@ -30,8 +41,10 @@
       "priceCents": 950,
       "image": "images/64-445efd79.webp",
       "allergens": [
+        "Schalenfrüchte",
         "pistachios",
         "Milch",
+        "Weizen",
         "Gluten"
       ]
     },
@@ -42,7 +55,11 @@
       "priceCents": 1050,
       "image": "images/71-3a5c75cb.webp",
       "allergens": [
+        "Senf",
         "Sellerie",
+        "Milch",
+        "barley",
+        "Weizen",
         "Gluten",
         "Soja"
       ]
@@ -55,6 +72,7 @@
       "image": "images/54-468cadf0.webp",
       "allergens": [
         "Milch",
+        "Weizen",
         "Gluten"
       ]
     },
@@ -66,6 +84,8 @@
       "image": "images/110-08c4489b.webp",
       "allergens": [
         "Sesam",
+        "Weizen",
+        "Gluten",
         "Soja"
       ]
     },
@@ -76,24 +96,11 @@
       "priceCents": 990,
       "image": "images/23-fe5fe38b.webp",
       "allergens": [
+        "Senf",
         "Milch",
-        "Gluten"
-      ]
-    },
-    {
-      "sku": "112",
-      "name": "Salsiccia Kürbis Sandwich",
-      "description": "",
-      "priceCents": 1050,
-      "image": "images/112-7b82d155.webp",
-      "allergens": [
-        "Milch",
-        "Weizen",
         "Gluten"
       ]
     }
   ],
-  "missingSince": {
-    "112": "2026-11-25"
-  }
+  "missingSince": {}
 }
